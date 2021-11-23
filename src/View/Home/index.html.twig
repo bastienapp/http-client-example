@@ -1,5 +1,19 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Hello Wilder !</h1>
+    <h1>Character list:</h1>
+    {% if house %}
+        <h2>{{ house }}</h2>
+    {% endif %}
+    {% if characters %}
+    <ul>
+        {% for character in characters %}
+        <li>
+            <h3>{{ character.name}}</h3>
+            <img src="{{ character.image }}" alt="{{ character.name }}" width="200" />
+            <div>{{ character.house }}</div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 {% endblock %}
